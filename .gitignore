@@ -1,0 +1,31 @@
+# General junk
+*.swp
+*.swo
+*.tmp
+*.bak
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node / tooling
+node_modules/
+dist/
+build/
+
+# Python
+__pycache__/
+*.pyc
+
+# Neovim
+nvim/.luarc.json
+nvim/.lazy-lock.json
+nvim-min/.lazy-lock.json
+nvim-exp/.lazy-lock.json
+
+# OS / cache
+.cache/
+.local/
+
