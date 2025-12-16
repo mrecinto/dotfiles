@@ -1,28 +1,23 @@
--- lua/plugins/init.lua
+return {
+  -- Simple plugins
+  'NMAC427/guess-indent.nvim',
 
--- Bootstrap lazy.nvim FIRST
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+  -- Modular plugins (comment to disable)
+  require 'plugins.themes',
+  require 'plugins.editor',
+  require 'plugins.neo_tree',
 
--- Now lazy is guaranteed to exist
-require("lazy").setup({
-  { import = "plugins.themes" },
+  -- UI / theme switcher
   {
-    "zaldih/themery.nvim",
+    'zaldih/themery.nvim',
     lazy = false,
     config = function()
-      require("ui.themery")
+      require 'ui.themery'
     end,
   },
-})
+
+  -- Optional plugins (easy toggles)
+  -- require 'plugins.telescope',
+  -- require 'plugins.lsp',
+}
 
