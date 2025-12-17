@@ -8,6 +8,7 @@ return {
   require 'plugins.neo_tree',
   require 'lsp.lsp',
   require 'plugins.typst_preview',
+  require 'plugins.comment',
 
   -- for suggestions
   require 'plugins.blink_cmp',
