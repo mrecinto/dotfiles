@@ -4,8 +4,15 @@ return {
 
   -- Modular plugins (comment to disable)
   require 'plugins.themes',
-  require 'plugins.editor',
+  require 'plugins.telescope',
   require 'plugins.neo_tree',
+  require 'lsp.lsp',
+  require 'plugins.typst_preview',
+
+  -- for suggestions
+  require 'plugins.blink_cmp',
+
+
 
   -- UI / theme switcher
   {

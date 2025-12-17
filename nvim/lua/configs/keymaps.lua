@@ -22,7 +22,7 @@ vim.keymap.set("n", "<leader>ut", "<cmd>Themery<CR>", {
 vim.keymap.set("n", "<leader>Q", ":q!<CR>", { silent = true })
 
 -- Neo-tree
-vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<CR>', { silent = true })
+vim.keymap.set('n', '\\', '<cmd>Neotree toggle<CR>', { silent = true })
 --vim.keymap.set('n', '<leader>o', '<cmd>Neotree focus<CR>',  { silent = true })
 
 -- Window navigation (simple + universal)
@@ -40,4 +40,22 @@ vim.keymap.set('n', '<leader>sq', '<C-w>q', { silent = true }) -- close window
 -- Indent while staying in visual mode
 vim.keymap.set("v", "<Tab>", ">gv", { silent = true })
 vim.keymap.set("v", "<S-Tab>", "<gv", { silent = true })
+
+
+-- Diagnostics (non-conflicting)
+vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, {
+  desc = 'Diagnostic under cursor',
+})
+
+vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, {
+  desc = 'Diagnostics list (current file)',
+})
+
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {
+  desc = 'Previous diagnostic',
+})
+
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {
+  desc = 'Next diagnostic',
+})
 

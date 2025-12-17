@@ -1,14 +1,31 @@
 -- matthew's config
 --
-
--- main options
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-
-vim.g.mapleader = " "
-
+require("bootstrap")
+require("configs")
+require('lazy').setup(
+  require 'plugins',
+  {
+    ui = {
+      icons = vim.g.have_nerd_font and {} or {
+        cmd = '⌘',
+        config = '🛠',
+        event = '📅',
+        ft = '📂',
+        init = '⚙',
+        keys = '🗝',
+        plugin = '🔌',
+        runtime = '💻',
+        require = '🌙',
+        source = '📄',
+        start = '🚀',
+        task = '📌',
+        lazy = '💤 ',
+      },
+    },
+  }
+)
 print("Loaded: nvim (main)")
+
+
+
 
