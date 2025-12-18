@@ -8,6 +8,24 @@ vim.keymap.set("v", "<C-c>", '"+y', {
   desc = "Copy selection to system clipboard",
 })
 
+
+-- Ctrl+A: select entire buffer
+vim.keymap.set('n', '<C-a>', 'ggVG', {
+  desc = 'Select all',
+})
+
+
+-- Ctrl+X in Visual mode: cut selection to system clipboard
+vim.keymap.set('v', '<C-x>', '"+d', {
+  desc = 'Cut selection to system clipboard',
+})
+
+-- Ctrl+X in Normal mode: cut line to system clipboard
+vim.keymap.set('n', '<C-x>', '"+dd', {
+  desc = 'Cut line to system clipboard',
+})
+
+
 -- keymaps
 vim.keymap.set('n','<leader>o', ':update<CR> :source<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
@@ -58,4 +76,28 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {
   desc = 'Next diagnostic',
 })
+
+-- Toggle Typst preview dark/light
+vim.keymap.set('n', '<leader>tt', function()
+  require('typst-preview').toggle_theme()
+end, {
+  desc = 'Toggle Typst preview theme',
+})
+
+-- Ctrl+/ toggle comment
+vim.keymap.set('n', '<C-_>', function()
+  require('Comment.api').toggle.linewise.current()
+end, { desc = 'Toggle comment' })
+
+vim.keymap.set('v', '<C-_>', function()
+  local esc = vim.api.nvim_replace_termcodes('<ESC>', true, false, true)
+  vim.api.nvim_feedkeys(esc, 'nx', false)
+  require('Comment.api').toggle.linewise(vim.fn.visualmode())
+end, { desc = 'Toggle comment (visual)' })
+
+-- typst preview
+vim.keymap.set("n", "<leader>tp", "<cmd>TypstPreviewToggle<CR>", {
+  desc = "Typst: toggle preview",
+})
+
 

@@ -5,13 +5,14 @@ return {
   opts = {
     debug = false,
 
+    -- open_cmd = "/mnt/c/Program\\ Files/qutebrowser/qutebrowser.exe %s",
     open_cmd = nil,
     port = 0,
 
     -- Dark / light behavior
     -- invert_colors = 'auto', -- 'never' | 'always' | 'auto'
-    -- invert_colors = 'never', -- 'never' | 'always' | 'auto'
-    invert_colors = 'always', -- 'never' | 'always' | 'auto'
+    invert_colors = 'never', -- 'never' | 'always' | 'auto'
+    -- invert_colors = 'always', -- 'never' | 'always' | 'auto'
 
 
     follow_cursor = true,
