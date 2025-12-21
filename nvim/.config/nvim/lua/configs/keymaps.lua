@@ -101,3 +101,7 @@ vim.keymap.set("n", "<leader>tp", "<cmd>TypstPreviewToggle<CR>", {
 })
 
 
+
+
+
+
