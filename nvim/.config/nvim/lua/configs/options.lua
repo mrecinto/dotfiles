@@ -17,5 +17,9 @@ vim.opt.wildignorecase = true
 vim.opt.wildcharm = 0
 
 
+-- "Tell Neovim to accept Meta cleanly"
+vim.opt.ttimeout = true
+vim.opt.ttimeoutlen = 10
+
 
 

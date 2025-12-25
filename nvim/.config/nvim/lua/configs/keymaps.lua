@@ -43,16 +43,25 @@ vim.keymap.set("n", "<leader>Q", ":q!<CR>", { silent = true })
 vim.keymap.set('n', '\\', '<cmd>Neotree toggle<CR>', { silent = true })
 --vim.keymap.set('n', '<leader>o', '<cmd>Neotree focus<CR>',  { silent = true })
 
--- Window navigation (simple + universal)
+-- Alt (Windows / proper Meta terminals)
 vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { silent = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true })
 
+-- ESC-prefixed Alt (Linux / kitty)
+vim.keymap.set('n', '<A-h>', '<C-w>h', { silent = true })
+vim.keymap.set('n', '<A-j>', '<C-w>j', { silent = true })
+vim.keymap.set('n', '<A-k>', '<C-w>k', { silent = true })
+vim.keymap.set('n', '<A-l>', '<C-w>l', { silent = true })
 -- Optional: quick split creation
-vim.keymap.set('n', '<leader>sv', '<C-w>v', { silent = true }) -- vertical split
-vim.keymap.set('n', '<leader>sh', '<C-w>s', { silent = true }) -- horizontal split
-vim.keymap.set('n', '<leader>sq', '<C-w>q', { silent = true }) -- close window
+vim.keymap.set('n', '<A-v>', '<C-w>v', { silent = true })
+vim.keymap.set('n', '<A-s>', '<C-w>s', { silent = true })
+vim.keymap.set('n', '<A-q>', '<C-w>q', { silent = true })
+
+vim.keymap.set('n', '<Esc>v', '<C-w>v', { silent = true })
+vim.keymap.set('n', '<Esc>s', '<C-w>s', { silent = true })
+vim.keymap.set('n', '<Esc>q', '<C-w>q', { silent = true })
 
 
 -- Indent while staying in visual mode

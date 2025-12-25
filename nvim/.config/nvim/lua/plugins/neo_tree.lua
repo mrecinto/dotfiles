@@ -22,6 +22,22 @@ return {
           hide_dotfiles = false,
           hide_gitignored = false,
         },
+
+        -- 🔑 CUSTOM OPEN COMMAND
+        commands = {
+          open = function(state)
+            local node = state.tree:get_node()
+            local path = node:get_id()
+
+            -- Open PDFs in Zathura
+            if path:match('%.pdf$') then
+              vim.fn.jobstart({ 'zathura', path }, { detach = true })
+            else
+              -- Default Neo-tree open behavior
+              require('neo-tree.sources.filesystem.commands').open(state)
+            end
+          end,
+        },
       },
 
       window = {
