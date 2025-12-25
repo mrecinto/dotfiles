@@ -1,0 +1,100 @@
+{
+  "layer": "top",
+  "position": "middle",
+  "margin-top": 12,
+  "margin-right": 10,
+  "margin-left": 10,
+
+  "modules-left": [
+    "clock"
+    // "hyprland/window"
+  ],
+
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "battery"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+
+  "clock": {
+    "format-alt": "{:%a, %d. %b  %H:%M}"
+  },
+
+"hyprland/workspaces": {
+  "format": "{icon}",
+  "format-icons": {
+    "default": "●",
+    "active": "●"
+  },
+  "persistent-workspaces": {
+    "*": 5
+  }
+},
+
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "🌎 $1",
+      "(.*) - fish": "> [$1]"
+    },
+    "separate-outputs": true
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+
+    "format-icons": {
+      "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+      "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ]
+  },
+
+  "network": {
+    "interface": "wlp0s20f3",
+    "format": "{ifname}",
+    "format-wifi": "{essid} ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "",
+
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+
+    "max-length": 50
+  }
+}
+

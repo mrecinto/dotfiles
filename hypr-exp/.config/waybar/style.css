@@ -1,0 +1,81 @@
+@import "colors.css";
+
+/* =========================
+   GLOBAL
+   ========================= */
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 12px;
+  min-height: 0;
+}
+
+/* =========================
+   WAYBAR — aligned to window inset
+   ========================= */
+
+window#waybar {
+  background: transparent;
+  color: #ffffff;
+
+  padding: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* =========================
+   WORKSPACES — single pill
+   ========================= */
+
+#workspaces {
+  padding: 2px 10px;
+  margin: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+#workspaces button {
+  padding: 0;
+  margin: 0 4px;   /* ↓ tighter spacing */
+  background: transparent;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* =========================
+   LEFT / RIGHT MODULES — pills
+   ========================= */
+
+#clock,
+#network,
+#pulseaudio,
+#battery {
+  padding: 2px 10px;
+  margin: 0 4px;   /* ↓ tighter spacing */
+
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+}
+
+/* =========================
+   TOOLTIP
+   ========================= */
+
+tooltip {
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+tooltip label {
+  color: #ffffff;
+}
+
