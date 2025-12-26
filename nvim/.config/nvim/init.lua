@@ -24,6 +24,8 @@ require('lazy').setup(
     },
   }
 )
+
+
 print("Loaded: nvim (main)")
 
 

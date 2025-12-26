@@ -5,15 +5,12 @@ return {
   opts = {
     debug = false,
 
-    -- open_cmd = "/mnt/c/Program\\ Files/qutebrowser/qutebrowser.exe %s",
-    open_cmd = nil,
+    -- Open Typst preview in a NEW Zen Browser window
+    open_cmd = "flatpak run --branch=stable io.github.zen_browser.zen --new-window %s",
     port = 0,
 
     -- Dark / light behavior
-    -- invert_colors = 'auto', -- 'never' | 'always' | 'auto'
-    invert_colors = 'never', -- 'never' | 'always' | 'auto'
-    -- invert_colors = 'always', -- 'never' | 'always' | 'auto'
-
+    invert_colors = 'never',
 
     follow_cursor = true,
 
@@ -38,7 +35,6 @@ return {
   },
 
   build = function()
-    -- This is the ONLY place require() is valid for this plugin
     require('typst-preview').update()
   end,
 }

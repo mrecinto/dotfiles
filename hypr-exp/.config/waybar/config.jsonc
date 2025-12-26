@@ -6,7 +6,7 @@
   "margin-left": 10,
 
   "modules-left": [
-    "clock"
+    "hyprland/workspaces"
     // "hyprland/window"
   ],
 
@@ -16,7 +16,7 @@
     "battery"
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "clock"
   ],
 
   "battery": {
