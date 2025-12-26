@@ -7,8 +7,20 @@ return {
     'MunifTanjim/nui.nvim',
     'nvim-tree/nvim-web-devicons',
   },
+
   config = function()
     require('neo-tree').setup({
+      -- ✅ RELATIVE NUMBER HANDLER
+      event_handlers = {
+        {
+          event = "neo_tree_buffer_enter",
+          handler = function()
+            vim.opt_local.number = true
+            vim.opt_local.relativenumber = true
+          end,
+        },
+      },
+
       close_if_last_window = true,
       popup_border_style = 'rounded',
 
@@ -23,17 +35,14 @@ return {
           hide_gitignored = false,
         },
 
-        -- 🔑 CUSTOM OPEN COMMAND
         commands = {
           open = function(state)
             local node = state.tree:get_node()
             local path = node:get_id()
 
-            -- Open PDFs in Zathura
             if path:match('%.pdf$') then
               vim.fn.jobstart({ 'zathura', path }, { detach = true })
             else
-              -- Default Neo-tree open behavior
               require('neo-tree.sources.filesystem.commands').open(state)
             end
           end,
@@ -43,8 +52,13 @@ return {
       window = {
         position = 'float',
         width = 30,
+
+        -- optional: keep these for consistency
+        number = true,
+        relativenumber = true,
+
         mappings = {
-          ['<space>'] = 'none',     -- avoid leader conflicts
+          ['<space>'] = 'none',
           ['o'] = 'open',
           ['l'] = 'open',
           ['h'] = 'close_node',
