@@ -14,7 +14,9 @@ return {
   require 'plugins.treesitter',
 
   -- for suggestions
+  require 'plugins.autopairs',
   require 'plugins.blink_cmp',
+  require 'plugins.nvim-web-devicons',
 
 
 

@@ -31,7 +31,7 @@ vim.api.nvim_create_user_command("Tp", function()
   if vim.g.typst_preview_open then
     -- CLOSE
     vim.cmd("TypstPreviewStop")
-    os.execute("pkill -x qutebrowser")
+    -- os.execute("pkill -x qutebrowser")
     vim.g.typst_preview_open = false
   else
     -- OPEN

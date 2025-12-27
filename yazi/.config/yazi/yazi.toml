@@ -1,0 +1,25 @@
+[opener]
+nvim = [
+  { run = "nvim \"$@\"", block = true }
+]
+zathura = [
+  { run = "zathura \"$@\"", orphan = true }
+]
+
+[open]
+rules = [
+  { mime = "application/pdf", use = "zathura" },
+  { name = "*.pdf", use = "zathura" },
+
+  { mime = "text/*", use = "nvim" },
+  { name = "*.md", use = "nvim" },
+  { name = "*.typ", use = "nvim" },
+  { name = "*.lua", use = "nvim" },
+  { name = "*.cpp", use = "nvim" },
+  { name = "*.h", use = "nvim" },
+  { name = "*.py", use = "nvim" },
+  { name = "*.rs", use = "nvim" },
+  { name = "*.json", use = "nvim" },
+  { name = "*.toml", use = "nvim" },
+]
+

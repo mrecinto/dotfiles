@@ -20,27 +20,34 @@ return {
       local map = function(lhs, rhs)
         vim.keymap.set('n', lhs, rhs, { buffer = bufnr, silent = true })
       end
+
+      -- LSP navigation
       map('gd', vim.lsp.buf.definition)
       map('K', vim.lsp.buf.hover)
       map('<leader>rn', vim.lsp.buf.rename)
       map('<leader>ca', vim.lsp.buf.code_action)
+
+      -- Diagnostics
+      map('<leader>e', vim.diagnostic.open_float) -- show diagnostic under cursor
+      map('[d', vim.diagnostic.goto_prev)         -- previous diagnostic
+      map(']d', vim.diagnostic.goto_next)         -- next diagnostic
+      map('<leader>q', vim.diagnostic.setloclist) -- list diagnostics
     end
 
-    -- New Neovim 0.11+ API
+    -- Lua LSP
     vim.lsp.config('lua_ls', {
       on_attach = on_attach,
     })
 
-   vim.lsp.config('tinymist', {
+    -- Typst (tinymist)
+    vim.lsp.config('tinymist', {
       on_attach = on_attach,
       settings = {
         exportPdf = 'onSave',
-
-        -- enable HTTP preview
         preview = {
           enabled = true,
-          browser = "default", -- or "firefox", "chromium", etc.
-          port = 23625,        -- any free port
+          browser = "default",
+          port = 23625,
         },
       },
     })
