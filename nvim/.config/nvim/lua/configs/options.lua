@@ -16,10 +16,8 @@ vim.opt.wildoptions = "pum"
 vim.opt.wildignorecase = true
 vim.opt.wildcharm = 0
 
-
--- "Tell Neovim to accept Meta cleanly"
-vim.opt.ttimeout = true
-vim.opt.ttimeoutlen = 10
+vim.opt.grepprg = "rg --vimgrep --smart-case"
+vim.opt.grepformat = "%f:%l:%c:%m"
 
 
 
