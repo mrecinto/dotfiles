@@ -3,11 +3,11 @@ return {
   lazy = false,
   config = function()
     require("nvim-web-devicons").set_icon({
-     typ = {
-      icon = "𝙏",
-      color = "#239dad",
-      name = "Typst",
-    },
+    --  typ = {
+    --   icon = "𝙏",
+    --   color = "#239dad",
+    --   name = "Typst",
+    -- },
      md = {
         icon = "󰍔",
         color = "#519aba",

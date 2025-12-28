@@ -1,3 +1,58 @@
+-- typst keybinds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vim.keymap.set(
+  "n",
+  "<leader>v",
+  function()
+    vim.cmd("edit " .. vim.fn.stdpath("config") .. "/lua/configs/keymaps.lua")
+  end,
+  { desc = "Open keymaps config" }
+)
+
+
 -- Ctrl+C in Normal mode: yank current line to system clipboard
 vim.keymap.set("n", "<C-c>", '"+yy', {
   desc = "Copy line to system clipboard",

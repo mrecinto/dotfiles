@@ -17,6 +17,8 @@ return {
   require 'plugins.autopairs',
   require 'plugins.blink_cmp',
   require 'plugins.nvim-web-devicons',
+  require 'plugins.yazi',
+  require 'plugins.lualine',
 
 
 
