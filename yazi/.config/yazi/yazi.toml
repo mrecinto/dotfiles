@@ -11,6 +11,8 @@ rules = [
   { mime = "application/pdf", use = "zathura" },
   { name = "*.pdf", use = "zathura" },
 
+  { name = "*.fish", use = "nvim" },
+
   { mime = "text/*", use = "nvim" },
   { name = "*.md", use = "nvim" },
   { name = "*.typ", use = "nvim" },

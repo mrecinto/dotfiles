@@ -36,10 +36,15 @@
 
 "hyprland/workspaces": {
   "format": "{icon}",
+  "show-special": true,
+  "special-visible-only": true,
+
   "format-icons": {
     "default": "●",
-    "active": "●"
+    "active": "●",
+    "special": "◇"
   },
+
   "persistent-workspaces": {
     "*": 5
   }

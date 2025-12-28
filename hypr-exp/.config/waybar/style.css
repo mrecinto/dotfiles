@@ -44,6 +44,7 @@ window#waybar {
   color: rgba(255, 255, 255, 0.35);
 }
 
+
 #workspaces button.active,
 #workspaces button.focused {
   color: rgba(255, 255, 255, 0.95);
