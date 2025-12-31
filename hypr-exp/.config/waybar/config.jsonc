@@ -6,8 +6,14 @@
     "modules-left": [
         "hyprland/workspaces",
     ],
-    "modules-center": [
-    ],
+"modules-center": [
+  "custom/special-indicator"
+],
+
+"custom/special-indicator": {
+  "exec": "~/.config/waybar/scripts/special-active.sh",
+  "interval": 1
+},
     "modules-right": [
         "tray",
         "battery",
