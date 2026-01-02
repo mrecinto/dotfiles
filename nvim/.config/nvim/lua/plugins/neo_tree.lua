@@ -50,8 +50,8 @@ return {
       },
 
       window = {
-        position = 'float',
-        -- position = 'left',
+        -- position = 'float',
+        position = 'left',
         width = 30,
 
         -- optional: keep these for consistency

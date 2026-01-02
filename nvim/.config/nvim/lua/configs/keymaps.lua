@@ -155,4 +155,7 @@ vim.keymap.set(
   { silent = true, desc = "Close buffer" }
 )
 
+-- Barbar tab navigation
+vim.keymap.set('n', '<M-[>', '<Cmd>BufferPrevious<CR>', { desc = 'Previous buffer (tab)' })
+vim.keymap.set('n', '<M-]>', '<Cmd>BufferNext<CR>',     { desc = 'Next buffer (tab)' })
 
