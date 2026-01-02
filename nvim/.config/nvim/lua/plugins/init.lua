@@ -21,6 +21,7 @@ return {
   require 'plugins.lualine',
   require 'plugins.barbar',
   require 'plugins.smear-cursor',
+  require 'plugins.neoscroll',
 
 
 
