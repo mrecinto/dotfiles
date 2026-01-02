@@ -1,48 +1,5 @@
 -- typst keybinds
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 vim.keymap.set(
   "n",
   "<leader>v",
@@ -96,6 +53,13 @@ vim.keymap.set("n", "<leader>Q", ":q!<CR>", { silent = true })
 
 -- Neo-tree
 vim.keymap.set('n', '\\', '<cmd>Neotree toggle<CR>', { silent = true })
+vim.keymap.set(
+  "n",
+  "<M-;>",
+  "<Cmd>Neotree toggle<CR>",
+  { silent = true }
+)
+
 --vim.keymap.set('n', '<leader>o', '<cmd>Neotree focus<CR>',  { silent = true })
 
 -- Alt (Windows / proper Meta terminals)
@@ -165,7 +129,30 @@ vim.keymap.set("n", "<leader>tp", "<cmd>TypstPreviewToggle<CR>", {
 })
 
 
+-- barbar
+-- Alt + number → go to buffer
+for i = 1, 9 do
+  vim.keymap.set(
+    "n",
+    "<M-" .. i .. ">",
+    "<Cmd>BufferGoto " .. i .. "<CR>",
+    { silent = true, desc = "Go to buffer " .. i }
+  )
+end
 
+-- Alt + 0 → last buffer
+vim.keymap.set(
+  "n",
+  "<M-0>",
+  "<Cmd>BufferLast<CR>",
+  { silent = true, desc = "Go to last buffer" }
+)
 
+vim.keymap.set(
+  "n",
+  "<M-w>",
+  "<Cmd>BufferClose<CR>",
+  { silent = true, desc = "Close buffer" }
+)
 
 

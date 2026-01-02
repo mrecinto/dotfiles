@@ -20,8 +20,15 @@
         "network",
         "pulseaudio",
         "clock",
+        "custom/wlogout",
     ],
 
+"custom/wlogout": {
+  "format": "",
+  "tooltip": "Logout / Power Menu",
+  "on-click": "wlogout",
+  "on-click-right": "wlogout"
+},
 
     "hyprland/workspaces": {
         "format": "{icon}",

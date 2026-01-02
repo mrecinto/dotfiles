@@ -9,18 +9,24 @@
 
   "modules-left": [
     "hyprland/workspaces"
-    // "hyprland/window"
   ],
 
   "modules-right": [
     "network",
     "pulseaudio",
-    "battery"
+    "battery",
+    "custom/wlogout"
   ],
   "modules-center": [
     "clock"
   ],
 
+"custom/wlogout": {
+  "format": "",
+  "tooltip": "Logout / Power Menu",
+  "on-click": "wlogout",
+  "on-click-right": "wlogout"
+},
   "battery": {
     "format": "{capacity}% {icon}",
     "format-icons": [

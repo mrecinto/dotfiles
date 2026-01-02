@@ -4,6 +4,12 @@ vim.o.relativenumber = true
 vim.o.wrap = true
 vim.o.swapfile = false
 
+-- apparently for linux alt binding... idk
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
+
+
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 2

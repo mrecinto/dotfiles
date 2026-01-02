@@ -119,8 +119,11 @@ button {
     margin-left: 0;
 }
 
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+/* .modules-right > widget:last-child > #workspaces { */
+/*     margin-right: 0; */
+/* } */
+.modules-right {
+  margin-right: 16px;
 }
 
 /* ========================

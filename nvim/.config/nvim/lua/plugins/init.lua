@@ -19,6 +19,7 @@ return {
   require 'plugins.nvim-web-devicons',
   require 'plugins.yazi',
   require 'plugins.lualine',
+  require 'plugins.barbar',
 
 
 

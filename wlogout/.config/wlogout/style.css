@@ -1,0 +1,53 @@
+@import "/home/mrecinto/dotfiles/hypr-exp/.config/waybar/colors.css";
+
+*{
+
+  background-image: none;
+  box-shadow: none;
+}
+window {
+  background-color: rgba(0,0,0,0.9);
+}
+
+button {
+  box-shadow: 0px 0px 4px black;
+  border-radius: 28px;
+  border-color: black;
+  padding: 6px;
+  margin: 8px;
+  text-decoration-color: @on_surface;
+  color: @on_surface;
+  background-color: @background;
+  border-style: solid;
+  border-width: 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+}
+
+button:focus, button:active, button:hover{
+  background-color: @surface_container_high;
+  /* color: @on_primary; */
+}
+
+#lock{
+  background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/share/wlogout/icons/lock.png"));
+}
+
+#logout{
+  background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/share/wlogout/icons/logout.png"));
+}
+
+#suspend{
+  background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/share/wlogout/icons/suspend.png"));
+}
+
+#hibernate{
+  background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/share/wlogout/icons/hibernate.png"));
+}
+#shutdown{
+  background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/share/wlogout/icons/shutdown.png"));
+}
+#reboot{
+  background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/share/wlogout/icons/reboot.png"));
+}

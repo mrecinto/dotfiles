@@ -69,5 +69,8 @@ if status is-interactive
    function discord
       Discord --enable-features=UseOzonePlatform --ozone-platform=wayland
    end
+   # Doom Emacs
+set -gx PATH $HOME/.config/emacs/bin $PATH
+
 # Commands to run in interactive sessions can go here
 end
