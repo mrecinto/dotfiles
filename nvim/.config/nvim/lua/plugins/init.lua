@@ -20,6 +20,7 @@ return {
   require 'plugins.yazi',
   require 'plugins.lualine',
   require 'plugins.barbar',
+  require 'plugins.smear-cursor',
 
 
 

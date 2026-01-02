@@ -1,5 +1,34 @@
 if status is-interactive
     set -gx PATH $HOME/.local/bin $PATH
+    set -g fish_greeting
+
+   
+# function fish_prompt
+#     # Matugen primary (ANSI slot 4)
+#     printf "\e[38;5;4m%s" (whoami) 
+#
+#     printf "\e[97m@%s " (hostname -s)
+#
+#     # Reset to terminal foreground
+#     printf "\e[39m%s> " (prompt_pwd)
+# end
+function fish_prompt
+    # Username (Matugen primary)
+    printf "\e[38;5;4m%s" (whoami)
+
+    # Hostname (white)
+    printf "\e[97m@%s " (hostname -s)
+
+    # Path (Matugen primary, same tint)
+    printf "\e[38;5;4m%s" (prompt_pwd)
+
+    # Reset + prompt symbol
+    printf "\e[39m> "
+end
+
+
+
+
     function notes
       cd ~/Documents/ucsd-notes
     end
