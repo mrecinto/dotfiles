@@ -22,7 +22,8 @@ return {
   require 'plugins.barbar',
   require 'plugins.smear-cursor',
   require 'plugins.neoscroll',
-
+  require 'plugins.obsidian',
+  require 'plugins.markview',
 
 
   -- UI / theme switcher
