@@ -1,3 +1,13 @@
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    vim.wo.foldmethod = "expr"
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo.foldlevel = 99      -- start unfolded
+  end,
+})
+
+
+
 -- highlight after yanking/copying
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),

@@ -10,7 +10,7 @@ return {
   require 'plugins.typst_preview',
   require 'plugins.comment',
 
-  require 'plugins.mdmath',
+  -- require 'plugins.mdmath',
   require 'plugins.treesitter',
 
   -- for suggestions

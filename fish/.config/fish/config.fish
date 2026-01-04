@@ -82,6 +82,7 @@ end
 
     function cfg
       cd ~/dotfiles
+      y
     end
 
     function fi-cfg

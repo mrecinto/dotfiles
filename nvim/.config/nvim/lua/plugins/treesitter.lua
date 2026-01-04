@@ -8,14 +8,15 @@ return {
   --     enable = true,
   --   },
   -- },
-  opts = {
-    ensure_installed = {
+    opts = {
+      ensure_installed = {
+      "c",
+      "cpp",
       "lua",
       "vim",
       "bash",
       "markdown",
-      "typst", -- ← THIS is #3
-    },
+      "typst",
+    }
   }
 }
-
