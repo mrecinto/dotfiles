@@ -1,4 +1,10 @@
--- typst keybinds
+vim.keymap.set("n", "gx", function()
+  vim.fn.jobstart({
+    "firefox",
+    "--new-window",
+    vim.fn.expand("<cfile>")
+  }, { detach = true })
+end, { silent = true })
 
 vim.keymap.set(
   "n",

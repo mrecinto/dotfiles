@@ -1,7 +1,10 @@
 if status is-interactive
     set -gx PATH $HOME/.local/bin $PATH
     set -g fish_greeting
-
+    function org
+      cd ~/Documents/org
+      nvim org.md
+    end
    
 # function fish_prompt
 #     # Matugen primary (ANSI slot 4)
