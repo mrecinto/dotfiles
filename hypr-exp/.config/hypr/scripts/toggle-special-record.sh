@@ -10,23 +10,23 @@ focused_mon="$(hyprctl -j monitors | jq -r '.[] | select(.focused==true) | .name
 [ -z "$focused_mon" ] && exit 0
 
 STATE_FILE="$STATE_DIR/last-special-$focused_mon"
+target="$1"
 
-# Current special workspace (if any)
+[ -z "$target" ] && exit 0
+
 current="$(hyprctl -j monitors | jq -r --arg m "$focused_mon" \
   '.[] | select(.name==$m) | .specialWorkspace.name // ""')"
 
 current="${current#special:}"
 
-if [ -n "$current" ]; then
-  # We are IN a special → record it and exit
-  echo "$current" > "$STATE_FILE"
-  hyprctl dispatch togglespecialworkspace "$current"
+# If already in this special → exit it
+if [ "$current" = "$target" ]; then
+  echo "$target" > "$STATE_FILE"
+  hyprctl dispatch togglespecialworkspace "$target"
   exit 0
 fi
 
-# We are NOT in a special → restore last used one
-if [ -f "$STATE_FILE" ]; then
-  last="$(cat "$STATE_FILE")"
-  [ -n "$last" ] && hyprctl dispatch togglespecialworkspace "$last"
-fi
+# Switching special → special OR normal → special
+echo "$target" > "$STATE_FILE"
+hyprctl dispatch togglespecialworkspace "$target"
 
