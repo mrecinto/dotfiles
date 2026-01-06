@@ -16,6 +16,8 @@ return {
       "vim",
       "bash",
       "markdown",
+      "markdown_inline",
+      "latex",
       "typst",
     }
   }

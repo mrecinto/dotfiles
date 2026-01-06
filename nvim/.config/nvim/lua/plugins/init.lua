@@ -24,6 +24,7 @@ return {
   require 'plugins.neoscroll',
   require 'plugins.obsidian',
   require 'plugins.markview',
+  require 'plugins.luasnip',
 
 
   -- UI / theme switcher

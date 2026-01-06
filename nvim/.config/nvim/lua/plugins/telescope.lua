@@ -11,54 +11,47 @@ return {
       end,
     },
   },
-  keys = {
-    -- Kickstart-style (s = search)
-    {
-      "<leader>sf",
-      function() require("telescope.builtin").find_files() end,
-      desc = "Search files",
-    },
-    {
-      "<leader>sg",
-      function() require("telescope.builtin").live_grep() end,
-      desc = "Search grep",
-    },
-    {
-      "<leader>sb",
-      function() require("telescope.builtin").buffers() end,
-      desc = "Search buffers",
-    },
-    {
-      "<leader>sh",
-      function() require("telescope.builtin").help_tags() end,
-      desc = "Search help",
-    },
-
-    -- Speed-style (f = find)
-    {
-      "<leader>ff",
-      function() require("telescope.builtin").find_files() end,
-      desc = "Find files",
-    },
-    {
-      "<leader>fg",
-      function() require("telescope.builtin").live_grep() end,
-      desc = "Find text (grep)",
-    },
-
-    -- QoL
-    {
-      "<leader>fr",
-      function() require("telescope.builtin").oldfiles() end,
-      desc = "Recent files",
-    },
-    {
-      "<leader>fl",
-      function() require("telescope.builtin").resume() end,
-      desc = "Resume Telescope",
-    },
+keys = {
+  -- Find files (LOCAL: current file's directory)
+  {
+    "<leader>fs",
+    function()
+      require("telescope.builtin").find_files({
+        cwd = vim.fn.expand("%:p:h"),
+      })
+    end,
+    desc = "Find files (current directory)",
   },
-  config = function()
+
+  -- Grep text (GLOBAL: entire cwd / vault)
+  {
+    "<leader>fg",
+    function()
+      require("telescope.builtin").live_grep()
+    end,
+    desc = "Grep text (global)",
+  },
+
+  -- Optional but useful
+  {
+    "<leader>fo",
+    function() require("telescope.builtin").oldfiles() end,
+    desc = "Recent files",
+  },
+  {
+    "<leader>fb",
+    function() require("telescope.builtin").buffers() end,
+    desc = "Buffers",
+  },
+  {
+    "<leader>fh",
+    function() require("telescope.builtin").help_tags() end,
+    desc = "Help",
+  },
+
+
+},
+config = function()
     local telescope = require("telescope")
 
     telescope.setup({
