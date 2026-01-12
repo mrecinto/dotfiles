@@ -2,14 +2,14 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile" },
-  indent = { enable = true; },
-  -- opts = {
-  --   highlight = {
-  --     enable = true,
-  --   },
-  -- },
-    opts = {
-      ensure_installed = {
+  opts = {
+    highlight = {
+      enable = true,   -- REQUIRED for injections
+    },
+    indent = {
+      enable = true,
+    },
+    ensure_installed = {
       "c",
       "cpp",
       "lua",
@@ -19,6 +19,8 @@ return {
       "markdown_inline",
       "latex",
       "typst",
-    }
-  }
+      "matlab",        -- IMPORTANT if you want MATLAB LSP in code blocks
+    },
+  },
 }
+

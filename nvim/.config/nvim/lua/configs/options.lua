@@ -8,6 +8,7 @@ vim.o.swapfile = false
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
+vim.g.netrw_browsex_viewer = "xdg-open"
 
 
 vim.opt.expandtab = true

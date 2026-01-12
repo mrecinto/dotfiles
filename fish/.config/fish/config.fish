@@ -5,7 +5,20 @@ if status is-interactive
       cd ~/Documents/org
       nvim org.md
     end
-   
+
+    function personal
+      cd ~/Documents/personal
+      y
+    end
+ function t
+    if test (count $argv) -eq 0
+        echo "usage: t <session-name>"
+        return 1
+    end
+
+    tmux new-session -A -s $argv[1]
+end
+  
 # function fish_prompt
 #     # Matugen primary (ANSI slot 4)
 #     printf "\e[38;5;4m%s" (whoami) 
@@ -48,12 +61,15 @@ end
     # current classes
     function 180a
       cd ~/Documents/ucsd-notes/third-year/wi2026/math180a
+      y
     end
     function 154
       cd ~/Documents/ucsd-notes/third-year/wi2026/math154
+      y
     end
     function 170a
       cd ~/Documents/ucsd-notes/third-year/wi2026/math170a
+      y
     end
 
 

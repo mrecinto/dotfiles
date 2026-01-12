@@ -23,8 +23,10 @@ return {
   require 'plugins.smear-cursor',
   require 'plugins.neoscroll',
   require 'plugins.obsidian',
-  require 'plugins.markview',
+  -- require 'plugins.markview',
   require 'plugins.luasnip',
+  require 'plugins.img_clip',
+  -- require 'plugins.render-markdown',
 
 
   -- UI / theme switcher

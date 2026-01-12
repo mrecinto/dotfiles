@@ -1,3 +1,33 @@
+
+
+
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.keymap.set("n", "<CR>", function()
+      local target = vim.fn.expand("<cfile>")
+      if target == "" then return end
+
+      -- Absolute directory of the current buffer
+      local buf_dir = vim.fn.expand("%:p:h")
+
+      -- Resolve target relative to buffer directory
+      local path = buf_dir .. "/" .. target
+      path = vim.fn.fnamemodify(path, ":p")
+
+      if vim.fn.filereadable(path) == 1 then
+        vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+      else
+        -- fallback to normal Enter
+        vim.cmd("normal! <CR>")
+      end
+    end, { buffer = true, silent = true })
+  end,
+})
+
+
+
 vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.wo.foldmethod = "expr"

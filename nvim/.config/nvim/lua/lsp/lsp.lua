@@ -6,7 +6,7 @@ return {
     'williamboman/mason-lspconfig.nvim',
   },
   config = function()
-    -- Mason: installs servers
+    -- Mason: installs open-source servers ONLY
     require('mason').setup()
     require('mason-lspconfig').setup({
       ensure_installed = {
@@ -21,17 +21,15 @@ return {
         vim.keymap.set('n', lhs, rhs, { buffer = bufnr, silent = true })
       end
 
-      -- LSP navigation
       map('gd', vim.lsp.buf.definition)
       map('K', vim.lsp.buf.hover)
       map('<leader>rn', vim.lsp.buf.rename)
       map('<leader>ca', vim.lsp.buf.code_action)
 
-      -- Diagnostics
-      map('<leader>e', vim.diagnostic.open_float) -- show diagnostic under cursor
-      map('[d', vim.diagnostic.goto_prev)         -- previous diagnostic
-      map(']d', vim.diagnostic.goto_next)         -- next diagnostic
-      map('<leader>q', vim.diagnostic.setloclist) -- list diagnostics
+      map('<leader>e', vim.diagnostic.open_float)
+      map('[d', vim.diagnostic.goto_prev)
+      map(']d', vim.diagnostic.goto_next)
+      map('<leader>q', vim.diagnostic.setloclist)
     end
 
     -- Lua LSP
@@ -52,7 +50,8 @@ return {
       },
     })
 
-    -- Enable servers
+
+    -- Enable ONLY Mason-managed servers
     vim.lsp.enable({
       'lua_ls',
       'tinymist',

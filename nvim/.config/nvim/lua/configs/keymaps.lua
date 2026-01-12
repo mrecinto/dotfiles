@@ -1,3 +1,113 @@
+vim.keymap.set("n", "<leader>mv", function()
+  local buf = vim.api.nvim_get_current_buf()
+  local enabled = vim.b[buf].markview_enabled
+  if enabled == nil then enabled = true end
+
+  if enabled then
+    vim.cmd("Markview disable")
+  else
+    vim.cmd("Markview enable")
+  end
+
+  vim.b[buf].markview_enabled = not enabled
+end, {
+  desc = "Toggle Markview rendering (buffer-local)",
+})
+
+
+vim.keymap.set("n", "<leader>oo", function()
+  local vault = "personal"
+  local vault_root = vim.fn.expand("~/Documents/personal/")
+  local full = vim.fn.expand("%:p")
+
+  if not vim.startswith(full, vault_root) then
+    vim.notify("File is not inside the 'personal' Obsidian vault", vim.log.levels.ERROR)
+    return
+  end
+
+  local rel = full:sub(#vault_root + 1)
+
+  local encoded = rel
+    :gsub("\n", "\r\n")
+    :gsub("([^%w%-_%.~])", function(c)
+      return string.format("%%%02X", string.byte(c))
+    end)
+
+  local uri = string.format(
+    "obsidian://open?vault=%s&file=%s&new=true",
+    vault,
+    encoded
+  )
+
+  vim.fn.jobstart({ "xdg-open", uri }, { detach = true })
+end, { desc = "Open current file in Obsidian (new window)" })
+
+
+
+
+
+
+
+
+vim.keymap.set("i", "<M-w>", "<C-w>", { noremap = true })
+
+
+
+vim.keymap.set("n", "gf", function()
+  return require("obsidian").util.gf_passthrough()
+end, {
+  noremap = false,
+  expr = true,
+  desc = "Obsidian: follow link or create note",
+})
+vim.keymap.set("n", "<leader>ni", function()
+  vim.ui.input({ prompt = "Inbox note name: " }, function(name)
+    if not name or name == "" then return end
+
+    -- sanitize to a simple filename
+    local filename = name:gsub("[/\\]", "-") .. ".md"
+    local path = vim.fn.expand("~/Documents/personal/01 - inbox/" .. filename)
+
+    vim.cmd("edit " .. vim.fn.fnameescape(path))
+  end)
+end, { desc = "Inbox capture" })
+
+
+vim.keymap.set("n", "<leader>on", function()
+  require("obsidian").move_note({
+    dir = "02 - zettles/00 - staging",
+  })
+end, { desc = "Promote to Zettel (staging)" })
+
+vim.keymap.set("n", "<leader>ot", "<cmd>Obsidian new_from_template<cr>", {
+  desc = "New Zettel (template)",
+})
+vim.keymap.set("n", "<leader>of", "<cmd>Obsidian quick_switch<cr>", {
+  desc = "Find Obsidian note",
+})
+
+-- vim.keymap.set("n", "<leader>oo", "<cmd>Obsidian follow_link<cr>", {
+--   desc = "Obsidian: follow link",
+--   silent = true,
+-- })
+vim.keymap.set("n", "<leader>os", "<cmd>ObsidianQuickSwitch<cr>", {
+  desc = "Obsidian: quick switch",
+})
+vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<cr>", {
+  desc = "Obsidian: backlinks",
+})
+
+-- Alt navigation in command-line mode (completion-aware)
+vim.keymap.set("c", "<M-j>", function()
+  return vim.fn.pumvisible() == 1 and "<C-n>" or "<Down>"
+end, { expr = true, noremap = true })
+
+vim.keymap.set("c", "<M-k>", function()
+  return vim.fn.pumvisible() == 1 and "<C-p>" or "<Up>"
+end, { expr = true, noremap = true })
+
+
+
 vim.keymap.set("n", "gx", function()
   vim.fn.jobstart({
     "firefox",
@@ -45,7 +155,7 @@ vim.keymap.set('n', '<C-x>', '"+dd', {
 
 
 -- keymaps
-vim.keymap.set('n','<leader>o', ':update<CR> :source<CR>')
+-- vim.keymap.set('n','<leader>o', ':update<CR> :source<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
 
@@ -138,11 +248,24 @@ vim.keymap.set("n", "<leader>tp", "<cmd>TypstPreviewToggle<CR>", {
 -- barbar
 -- Alt + number → go to buffer
 for i = 1, 9 do
+  -- Normal mode (you already have this)
   vim.keymap.set(
     "n",
     "<M-" .. i .. ">",
     "<Cmd>BufferGoto " .. i .. "<CR>",
     { silent = true, desc = "Go to buffer " .. i }
+  )
+
+  -- Insert mode (new)
+  vim.keymap.set(
+    "i",
+    "<M-" .. i .. ">",
+    function()
+      vim.cmd("stopinsert")
+      vim.cmd("BufferGoto " .. i)
+      vim.cmd("startinsert")
+    end,
+    { silent = true, desc = "Go to buffer " .. i .. " (insert)" }
   )
 end
 
