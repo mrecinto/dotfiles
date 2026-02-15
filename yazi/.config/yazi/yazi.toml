@@ -15,7 +15,13 @@ rules = [
 
   { mime = "text/*", use = "nvim" },
   { name = "*.md", use = "nvim" },
+
+  { mime = "application/x-typst", use = "nvim" },
+  { mime = "text/x-typst", use = "nvim" },
   { name = "*.typ", use = "nvim" },
+
+
+
   { name = "*.lua", use = "nvim" },
   { name = "*.cpp", use = "nvim" },
   { name = "*.h", use = "nvim" },

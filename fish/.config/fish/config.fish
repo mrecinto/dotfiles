@@ -55,7 +55,7 @@ end
 
     function book
       cd ~/Documents/ucsd-notes/textbooks
-      nvim .
+      y
     end
 
     # current classes
@@ -123,3 +123,4 @@ set -gx PATH $HOME/.config/emacs/bin $PATH
 
 # Commands to run in interactive sessions can go here
 end
+alias xournalpp 'flatpak run com.github.xournalpp.xournalpp'

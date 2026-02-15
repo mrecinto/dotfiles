@@ -1,7 +1,28 @@
 return {
   "sphamba/smear-cursor.nvim",
 
+
   opts = {
+
+    -- fire cursor
+    -- cursor_color ="blue",
+    -- particles_enabled = true,
+    -- particle_max_num = 200,
+    -- stiffness =0.5,
+    -- trailing_stiffness = 0.2,
+    -- trailing_exponent = 5,
+    -- damping = 0.6,
+    -- gradient_exponent = 0,
+
+
+
+
+
+    stiffness = 0.8,
+    trailing_stiffness = 0.5,
+    distance_stop_animating = 0.5,
+    distance_stop_animating_vertical_bar = 0.1,
+
     -- Smear cursor when switching buffers or windows.
     smear_between_buffers = true,
 
@@ -14,7 +35,7 @@ return {
 
     -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
     -- Smears and particles will look a lot less blocky.
-    legacy_computing_symbols_support = false,
+    legacy_computing_symbols_support = true,
 
     -- Smear cursor in insert mode.
     -- See also `vertical_bar_cursor_insert_mode` and `distance_stop_animating_vertical_bar`.

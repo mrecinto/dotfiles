@@ -26,6 +26,9 @@ return {
   -- require 'plugins.markview',
   require 'plugins.luasnip',
   require 'plugins.img_clip',
+  require 'plugins.indent-blankline',
+  -- require 'plugins.conform',
+
   -- require 'plugins.render-markdown',
 
 

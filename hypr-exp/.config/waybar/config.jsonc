@@ -7,8 +7,16 @@
         "hyprland/workspaces",
     ],
 "modules-center": [
+  "hyprland/window",
   "custom/special-indicator"
 ],
+"custom/pomodoro": {
+	"format": "{}",
+	"return-type": "json",
+	"exec": "waybar-module-pomodoro",
+	"on-click": "waybar-module-pomodoro toggle",
+	"on-click-right": "waybar-module-pomodoro reset",
+},
 
 "custom/special-indicator": {
   "exec": "~/.config/waybar/scripts/special-active.sh",
@@ -16,6 +24,7 @@
 },
     "modules-right": [
         "tray",
+        // "custom/pomodoro",
         "battery",
         "network",
         "pulseaudio",
@@ -91,7 +100,9 @@
 
     "clock": {
         "interval": 1,
-        "format": "{:%I:%M %p}",
-        "tooltip-format": "{:%m/%d/%Y\n%I:%M:%S %p}",
+          "format": "{:%a %b %d  %I:%M %p}",
+        // "format": "{:%I:%M %p}",
+        // "tooltip-format": "{:%m/%d/%Y\n%I:%M:%S %p}",
+        "tooltip-format": "{:%m/%d/%Y}",
     },
 }
