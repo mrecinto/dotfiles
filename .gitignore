@@ -27,5 +27,7 @@ nvim-exp/.lazy-lock.json
 
 # OS / cache
 .cache/
-.local/
+.local/*
+!.local/bin/
+!.local/bin/**
 

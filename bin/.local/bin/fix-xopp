@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+file="$1"
+
+# Only act on .xopp files
+if [[ "$file" == *.xopp ]]; then
+    # If file exists and is empty
+    if [[ -f "$file" && ! -s "$file" ]]; then
+        cp "$HOME/.config/yazi/templates/default.xopp" "$file"    
+    fi
+fi
+
