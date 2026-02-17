@@ -1,3 +1,4 @@
+
 [opener]
 nvim = [
   { run = "nvim \"$@\"", block = true }
@@ -5,29 +6,43 @@ nvim = [
 zathura = [
   { run = "zathura \"$@\"", orphan = true }
 ]
+# xournalpp = [
+#   { run = "flatpak run com.github.xournalpp.xournalpp \"$@\"", orphan = true }
+# ]
+
+xournalpp = [
+  { run = "fix-xopp \"$@\"; flatpak run com.github.xournalpp.xournalpp \"$@\"", orphan = true }
+]
+
 
 [open]
 rules = [
-  { mime = "application/pdf", use = "zathura" },
-  { name = "*.pdf", use = "zathura" },
+# empty files
+  { mime = "inode/x-empty", use = "nvim" },
 
-  { name = "*.fish", use = "nvim" },
+  { mime = "application/pdf", use = "zathura" },
+  { url = "*.pdf", use = "zathura" },
+
+  { url = "*.xopp", use = "xournalpp" },
+
+  { url = "*.fish", use = "nvim" },
 
   { mime = "text/*", use = "nvim" },
-  { name = "*.md", use = "nvim" },
+  { url = "*.md", use = "nvim" },
 
   { mime = "application/x-typst", use = "nvim" },
   { mime = "text/x-typst", use = "nvim" },
-  { name = "*.typ", use = "nvim" },
+  { url = "*.typ", use = "nvim" },
 
+  { url = "*.lua", use = "nvim" },
+  { url = "*.cpp", use = "nvim" },
+  { url = "*.h", use = "nvim" },
+  { url = "*.py", use = "nvim" },
+  { url = "*.rs", use = "nvim" },
+  { url = "*.json", use = "nvim" },
+  { url = "*.toml", use = "nvim" },
 
-
-  { name = "*.lua", use = "nvim" },
-  { name = "*.cpp", use = "nvim" },
-  { name = "*.h", use = "nvim" },
-  { name = "*.py", use = "nvim" },
-  { name = "*.rs", use = "nvim" },
-  { name = "*.json", use = "nvim" },
-  { name = "*.toml", use = "nvim" },
+  # Final fallback
+  { url = "*", use = "nvim" },
 ]
 
