@@ -1,3 +1,24 @@
+vim.keymap.set("n", "<C-f>", function()
+  local file = vim.fn.expand("<cfile>")
+
+  if not file:match("%.svg$") then
+    print("Cursor is not on an SVG file")
+    return
+  end
+
+  local exe = vim.fn.exepath("typst-figure")
+  if exe == "" then
+    print("typst-figure not found in PATH")
+    return
+  end
+
+  vim.fn.jobstart({ exe, file }, { detach = true })
+end, { desc = "Edit Typst figure" })
+
+
+
+
+
 -- vim.keymap.set("n", "<leader>tp", ":TypstPreview<CR>")
 -- vim.keymap.set("n", "<leader>tp", ":Tp<CR>")
 

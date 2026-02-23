@@ -36,7 +36,7 @@ opts = {
   workspaces = {
     {
       name = "personal",
-      path = vim.fn.expand("~/Documents/personal"),
+      path = vim.fn.expand("/mnt/shared/Documents/personal/practice"),
     },
     {
       name = "school",

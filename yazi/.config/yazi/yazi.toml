@@ -10,10 +10,12 @@ zathura = [
 #   { run = "flatpak run com.github.xournalpp.xournalpp \"$@\"", orphan = true }
 # ]
 
+# xournalpp = [
+#   { run = "fix-xopp \"$@\"; flatpak run com.github.xournalpp.xournalpp \"$@\"", orphan = true }
+# ]
 xournalpp = [
-  { run = "fix-xopp \"$@\"; flatpak run com.github.xournalpp.xournalpp \"$@\"", orphan = true }
+  { run = "fix-xopp \"$@\"; xournalpp \"$@\"", orphan = true }
 ]
-
 
 [open]
 rules = [

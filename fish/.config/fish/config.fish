@@ -6,6 +6,57 @@ if status is-interactive
       nvim org.md
     end
 
+    function mnt
+      cd /mnt/shared
+      y
+    end
+
+function n
+    set base "/mnt/shared/Documents/ucsd-notes/third-year/wi2026"
+
+    # If no argument → just go to base
+    if test (count $argv) -eq 0
+        cd "$base"
+        y
+        return
+    end
+
+    # Class directory (e.g., 180a)
+    set class_dir "$base/$argv[1]"
+
+    # Notes directory inside class
+    set notes_dir "$class_dir/notes"
+
+    # Create class dir if it doesn't exist
+    if not test -d "$class_dir"
+        mkdir -p "$class_dir"
+    end
+
+    # Create notes dir if it doesn't exist
+    if not test -d "$notes_dir"
+        mkdir -p "$notes_dir"
+    end
+
+    # Enter notes directory
+    cd "$notes_dir"
+
+    y
+end
+
+
+function p
+    set base "/mnt/shared/Documents/personal/practice"
+
+    if test (count $argv) -eq 0
+        cd "$base"
+    else
+        set target "$base/$argv[1]"
+        mkdir -p "$target"
+        cd "$target"
+    end
+
+    y
+end
     function personal
       cd ~/Documents/personal
       y
@@ -60,15 +111,15 @@ end
 
     # current classes
     function 180a
-      cd ~/Documents/ucsd-notes/third-year/wi2026/math180a
+      cd /mnt/shared/Documents/ucsd-notes/third-year/wi2026/180a
       y
     end
     function 154
-      cd ~/Documents/ucsd-notes/third-year/wi2026/math154
+      cd /mnt/shared/Documents/ucsd-notes/third-year/wi2026/154
       y
     end
     function 170a
-      cd ~/Documents/ucsd-notes/third-year/wi2026/math170a
+      cd /mnt/shared/Documents/ucsd-notes/third-year/wi2026/170a
       y
     end
 
@@ -123,4 +174,4 @@ set -gx PATH $HOME/.config/emacs/bin $PATH
 
 # Commands to run in interactive sessions can go here
 end
-alias xournalpp 'flatpak run com.github.xournalpp.xournalpp'
+# alias xournalpp 'flatpak run com.github.xournalpp.xournalpp'

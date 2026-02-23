@@ -1,37 +1,36 @@
 return {
-  "nvim-lualine/lualine.nvim",
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-  },
+  "L3MON4D3/LuaSnip",
+  version = "v2.*",
+  build = "make install_jsregexp",
+
   config = function()
-    require("lualine").setup({
-      options = {
-        icons_enabled = true,
-        theme = "auto",
-        component_separators = { left = "", right = "" },
-        section_separators   = { left = "", right = "" },
-        always_divide_middle = true,
-        always_show_tabline  = true,
-        globalstatus = true,
-        refresh = {
-          statusline = 1000,
-          tabline   = 1000,
-          winbar    = 1000,
-        },
-      },
-      sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { { "filename", path = 1 } },
-        lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
-      },
-      inactive_sections = {
-        lualine_c = { { "filename", path = 1 } },
-        lualine_x = { "location" },
-      },
+    local ls = require("luasnip")
+
+    ls.config.set_config({
+      history = true,
+      enable_autosnippets = true,
+      updateevents = "TextChanged,TextChangedI",
     })
+
+    require("luasnip.loaders.from_lua").lazy_load({
+      paths = vim.fn.stdpath("config") .. "/lua/snippets"
+    })
+
+    ls.filetype_extend("markdown", { "tex" })
+    ls.filetype_extend("typst", { "tex" })
+
+    -- 🔹 ADD KEYMAPS HERE
+    vim.keymap.set({ "i", "s" }, "<C-k>", function()
+      if ls.expand_or_jumpable() then
+        ls.expand_or_jump()
+      end
+    end, { silent = true })
+
+    vim.keymap.set({ "i", "s" }, "<C-j>", function()
+      if ls.jumpable(-1) then
+        ls.jump(-1)
+      end
+    end, { silent = true })
   end,
 }
 
