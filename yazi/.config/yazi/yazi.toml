@@ -3,6 +3,10 @@
 nvim = [
   { run = "nvim \"$@\"", block = true }
 ]
+
+xournal = [
+  { run = 'shell --detach xournalpp "$@"', desc = "Xournal++" }
+]
 zathura = [
   { run = "zathura \"$@\"", orphan = true }
 ]
@@ -21,8 +25,8 @@ xournalpp = [
 rules = [
 # empty files
   { mime = "inode/x-empty", use = "nvim" },
-
-  { mime = "application/pdf", use = "zathura" },
+  { mime = "application/pdf", use = ["zathura", "xournalpp"] },
+  # { mime = "application/pdf", use = "zathura" },
   { url = "*.pdf", use = "zathura" },
 
   { url = "*.xopp", use = "xournalpp" },
