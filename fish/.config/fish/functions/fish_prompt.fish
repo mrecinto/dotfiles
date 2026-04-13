@@ -1,2 +1,2 @@
-set_color --index 4
+# set_color 4
 

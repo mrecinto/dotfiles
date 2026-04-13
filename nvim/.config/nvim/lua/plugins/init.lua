@@ -28,6 +28,7 @@ return {
   require 'plugins.img_clip',
   require 'plugins.indent-blankline',
   -- require 'plugins.conform',
+  require 'plugins.vimtex',
 
   -- require 'plugins.render-markdown',
 

@@ -11,3 +11,6 @@ set incremental-search true
 # zoom
 map <C-=> zoom in
 map <C--> zoom out
+
+set synctex true
+set synctex-editor-command "nvim --headless -c \"VimtexInverseSearch %l '%f'\""

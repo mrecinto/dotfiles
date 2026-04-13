@@ -94,6 +94,11 @@ function fish_prompt
 end
 
 
+    function d
+      cd ~/Downloads
+      y
+      
+    end
 
 
     function notes
@@ -109,6 +114,22 @@ end
       y
     end
 
+    function 101
+      cd /mnt/shared/Documents/ucsd-notes/third-year/sp2026/cse101
+      y
+    end
+    function 100
+      cd /mnt/shared/Documents/ucsd-notes/third-year/sp2026/cse100
+      y
+    end
+    function 108
+      cd /mnt/shared/Documents/ucsd-notes/third-year/sp2026/cogs108
+      y
+    end
+    function 152
+      cd /mnt/shared/Documents/ucsd-notes/third-year/sp2026/math152
+      y
+    end
     # current classes
     function 180a
       cd /mnt/shared/Documents/ucsd-notes/third-year/wi2026/180a

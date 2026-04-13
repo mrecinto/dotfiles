@@ -5,6 +5,7 @@ return {
   opts = {
     highlight = {
       enable = true,   -- REQUIRED for injections
+      disable = { "latex" },
     },
     indent = {
       enable = true,
